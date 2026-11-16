@@ -4,8 +4,8 @@ Aplicación de supervisión en campo con almacenamiento local en el navegador. R
 
 ## Publicación
 1. Crear un repositorio en GitHub y subir el contenido de esta carpeta, incluyendo `.github/workflows/pages.yml`.
-2. En Settings → Pages, seleccionar **GitHub Actions** como fuente.
-3. En Actions, verificar que finalice el flujo «Publicar GeoFoto» y abrir la URL indicada por GitHub.
+2. En Settings → Pages, habilitar Pages seleccionando **GitHub Actions** como fuente. Esto es necesario para desplegar el sitio.
+3. En Actions, ejecutar de nuevo el flujo «Publicar GeoFoto» si falló antes de habilitar Pages; verificar que finalice y abrir la URL indicada por GitHub.
 
 Para desarrollar localmente: `npm ci` y `npm run dev`. Para compilar: `npm run build`. Las rutas son relativas para funcionar en un subdirectorio.
 
