@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="theme-color" content="#173d32" />
+    <meta name="description" content="Visitas de supervisión y evidencia georreferenciada." />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <title>GeoFoto · Supervisión en campo</title>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true">
+      <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h7M9 16h7"/></symbol>
+      <symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3zM9 3v15M15 6v15"/></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 17v4h16v-4"/></symbol>
+      <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 17V5m-4 4 4-4 4 4M4 17v4h16v-4"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 6h16M9 6V3h6v3m3 0-1 15H7L6 6m4 4v7m4-7v7"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol>
+      <symbol id="i-photo" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="2"/><path d="m3 17 5-5 4 4 3-3 6 6"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 21h20zM12 9v5m0 3h.01"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    </svg>
+    <div id="app">
+      <aside class="sidebar">
+        <button class="brand" data-view="visits" aria-label="Ir al inicio de GeoFoto"><span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19 10c0 4.5-7 10-7 10S5 14.5 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.7"/></svg></span><span><strong>GeoFoto</strong><small>SUPERVISIÓN EN CAMPO</small></span></button>
+        <div class="side-label">ESPACIO DE TRABAJO</div>
+        <nav class="side-nav" aria-label="Navegación principal">
+          <button class="nav-item" data-view="visits"><svg><use href="#i-grid"/></svg><span class="nav-full">Mis visitas</span><span class="nav-short">Visitas</span></button>
+          <div class="nav-separator"></div>
+          <div class="side-label section-label">VISITA ACTUAL</div>
+          <button class="nav-item needs-visit" data-view="data"><svg><use href="#i-file"/></svg><span class="nav-full">Datos de visita</span><span class="nav-short">Datos</span></button>
+          <button class="nav-item needs-visit" data-view="map"><svg><use href="#i-map"/></svg><span class="nav-full">Mapa y fotografías</span><span class="nav-short">Mapa y fotos</span></button>
+          <button class="nav-item needs-visit" data-view="report"><svg><use href="#i-check"/></svg><span class="nav-full">Revisión y reporte</span><span class="nav-short">Reporte</span></button>
+        </nav>
+        <div class="sidebar-bottom"><button class="nav-item" data-view="backup"><svg><use href="#i-download"/></svg><span>Respaldo de datos</span></button><div class="local-note"><span class="local-dot"></span>Datos en este dispositivo</div></div>
+      </aside>
+      <main class="main">
+        <header class="topbar"><div class="top-context"><span>GEOFOTO /</span> <strong id="crumb">Mis visitas</strong></div><div class="top-actions"><span id="save-status" class="save-status"><span></span> Guardado local</span><button id="install-btn" class="btn btn-outline btn-small hidden">Instalar aplicación</button></div></header>
+        <div id="visit-strip" class="visit-strip hidden"></div>
+        <div id="view" class="view"></div>
+      </main>
+    </div>
+    <div id="modal-root"></div>
+    <div id="toast-root" aria-live="polite"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

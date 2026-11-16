@@ -1,0 +1,9 @@
+import {uid} from './storage.js';
+export const REQUIRED=[['acreditado','Nombre del acreditado'],['tipoCredito','Tipo de crédito'],['monto','Monto del crédito'],['fecha','Fecha de visita'],['ubicacion','Ubicación de la inversión'],['plan','Plan de inversión contratado'],['realizada','Inversión realizada'],['estadoInversion','Estado de la inversión'],['operacion','Situación operativa de la empresa'],['riesgos','Riesgos para la capacidad de pago'],['irregularidades','Irregularidades identificadas'],['impacto','Impacto de las irregularidades'],['responsable','Responsable de la visita y reporte'],['observaciones','Observaciones']];
+export const OPTIONAL=[['intermediario','Intermediario financiero'],['numeroCredito','Número de crédito'],['cultivo','Cultivo o actividad'],['etapa','Etapa productiva'],['seguro','Seguro agrícola'],['rendimiento','Rendimiento estimado'],['beneficioCosto','Relación beneficio/costo']];
+export function missing(v){return REQUIRED.filter(([k])=>v.data[k]===undefined||v.data[k]===null||String(v.data[k]).trim()==='');}
+export function localDate(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+export function newVisit(){return {schema:1,id:uid(),createdAt:new Date().toISOString(),updatedAt:new Date().toISOString(),data:{fecha:localDate()},parcels:[],photos:[]};}
+export function prettyDate(value){if(!value)return 'Sin fecha';const d=new Date(value.length===10?`${value}T12:00:00`:value);return Number.isNaN(+d)?value:d.toLocaleString('es-MX',value.length===10?{day:'2-digit',month:'short',year:'numeric'}:{dateStyle:'short',timeStyle:'short'});}
+export function shortId(id){return String(id||'').slice(0,8).toUpperCase();}
+export function cleanFile(s){return String(s||'visita').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^A-Za-z0-9_-]+/g,'_').slice(0,55)||'visita';}
